@@ -32,8 +32,8 @@ router.patch('/books/:id', (req, res) => {
   const id = Number(req.params.id);
   const { title, author } = req.body || {};
   
-  if (!title || !author) {
-    return res.status(400).json({ error: 'title and author required' });
+  if (!title && !author) {
+    return res.status(400).json({ error: 'title or author required' });
   }
 
   const newBook = db.updateBook(id, title, author);

@@ -30,8 +30,8 @@ function updateBook(id,title, author) {
   const book = getBookById(id);
   if (!book) return null;
 
-  book.title = title;
-  book.author = author;
+  if(title) book.title = title;
+  if(author) book.author = author;
 
   return book;
 }
